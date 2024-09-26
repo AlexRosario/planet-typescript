@@ -1,7 +1,12 @@
 // SPACE DATA EXERCISE 15
 // Return an array of Planets' without moons
 
-export function getPlanetsWithNoMoons(planets) {}
+import { planet } from '../types/types';
+export function getPlanetsWithNoMoons(planets: planet[]) {
+	return planets.filter((planet) => {
+		return !planet.moons || planet.moons.length === 0;
+	});
+}
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-15"

@@ -1,8 +1,12 @@
 // SPACE DATA EXERCISE 1
 // Return an array of all Planets' names
 // Return example: ['name1', 'name2', ... , 'nameN']
+import { planet } from '../types/types';
 
-export function getPlanetNames(planets) {}
+export function getPlanetNames(planets: planet[]) {
+	console.log(planets);
+	return planets.map((planet) => planet.name);
+}
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-1"
