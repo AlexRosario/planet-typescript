@@ -2,11 +2,9 @@
 // Return the sum of orbital periods of all asteroids
 // Return example: 234234.234
 
-import { asteroid } from '../types/types';
-export function getOrbitalPeriodsSum(asteroids: asteroid[]) {
-	let orbitalPeriods = asteroids.map((asteroid) => asteroid.orbitalPeriod);
-
-	return orbitalPeriods.reduce((acc, curr) => acc + curr);
+import { Asteroid } from '../types/types';
+export function getOrbitalPeriodsSum(asteroids: Asteroid[]) {
+	return asteroids.reduce((acc, asteroid) => acc + asteroid.orbitalPeriod, 0);
 }
 
 // === TEST YOURSELF ===

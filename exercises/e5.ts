@@ -3,18 +3,22 @@
 // Return example: ['name1', 'name2', ... , 'nameN']
 // Note: This input should be destructured from the function parameter
 
-import { planet } from '../types/types';
+import { Planet } from '../types/types';
 
 export function getPlanetNamesWithMassValue({
 	planets,
 	greaterThanOrEqualTo,
 }: {
-	planets: planet[];
+	planets: Planet[];
 	greaterThanOrEqualTo: number;
 }) {
-	return planets
-		.filter((planet) => planet.mass.massValue >= greaterThanOrEqualTo)
-		.map((planet) => planet.name);
+	return planets.reduce((acc: string[], planet) => {
+		if (planet.mass.massValue >= greaterThanOrEqualTo) {
+			return [...acc, planet.name];
+		} else {
+			return acc;
+		}
+	}, []);
 }
 
 // === TEST YOURSELF ===
