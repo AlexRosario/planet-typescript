@@ -3,40 +3,30 @@ type Person = {
 	age: number;
 };
 
-export const minBy = (
-	array: Person[],
-	cb: (person: Person) => string | number
-) => {
+export const minBy = <T>(array: T[], cb: (person: T) => string | number) => {
 	if (array.length === 0) return undefined;
-	let min = cb(array[0] as Person);
-	let personIndex = 0;
+	if (array[0]) {
+		let min: T = array[0];
 
-	for (let i = 1; i < array.length; i++) {
-		const personMin = cb(array[i] as Person);
-
-		if (personMin < min) {
-			min = personMin;
-			personIndex = i;
+		for (let item of array) {
+			if (cb(item) < cb(min)) {
+				min = item;
+			}
 		}
+		return min;
 	}
-	return array[personIndex];
 };
 
-export const maxBy = (
-	array: Person[],
-	cb: (person: Person) => string | number
-) => {
+export const maxBy = <T>(array: T[], cb: (person: T) => string | number) => {
 	if (array.length === 0) return undefined;
-	let max = cb(array[0] as Person);
-	let personIndex = 0;
+	if (array[0]) {
+		let max: T = array[0];
 
-	for (let i = 1; i < array.length; i++) {
-		const personMax = cb(array[i] as Person);
-
-		if (personMax > max) {
-			max = personMax;
-			personIndex = i;
+		for (let item of array) {
+			if (cb(item) > cb(max)) {
+				max = item;
+			}
 		}
+		return max;
 	}
-	return array[personIndex];
 };

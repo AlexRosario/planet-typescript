@@ -2,13 +2,13 @@
 // Return a Planet by a given moon name
 //  must have destructured parameters
 
-import { planet } from '../types/types';
-type planetWithMoons = {
-	planets: planet[];
+import { Planet } from '../types/types';
+type PlanetWithMoons = {
+	planets: Planet[];
 	moonName: string;
 };
 
-export function findPlanetByMoon({ planets, moonName }: planetWithMoons) {
+export function findPlanetByMoon({ planets, moonName }: PlanetWithMoons) {
 	return planets.find((planet) => {
 		if (planet.moons)
 			return planet.moons.includes(

@@ -2,15 +2,12 @@
 // Return the sum of all moons for all planets
 // Return example: 42
 
-import { data } from '../types/types';
-export const allPlanetsMoonsCount = (data: data) => {
-	let moonsCount = 0;
-	data.planets.forEach((planet) => {
-		if (planet.moons) {
-			moonsCount += planet.moons.length;
-		}
-	});
-	return moonsCount;
+import { AllData } from '../types/types';
+export const allPlanetsMoonsCount = (data: AllData) => {
+	return data.planets.reduce(
+		(acc, planet) => acc + (planet.moons?.length || 0),
+		0
+	);
 };
 
 // === TEST YOURSELF ===

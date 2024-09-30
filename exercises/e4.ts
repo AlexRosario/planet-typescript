@@ -1,11 +1,15 @@
 // SPACE DATA EXERCISE 4
 // Return an array of Planets' names with gravity less than 10
 // Return example: ['name1', 'name2', ... , 'nameN']
-import { planet } from '../types/types';
-export function getPlanetNamesWithLowGravity(planets: planet[]) {
-	return planets
-		.filter((planet) => planet.gravity < 10)
-		.map((planet) => planet.name);
+import { Planet } from '../types/types';
+export function getPlanetNamesWithLowGravity(planets: Planet[]) {
+	return planets.reduce((acc: string[], planet) => {
+		if (planet.gravity < 10) {
+			return [...acc, planet.name];
+		} else {
+			return acc;
+		}
+	}, []);
 }
 
 // === TEST YOURSELF ===

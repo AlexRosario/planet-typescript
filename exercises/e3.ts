@@ -1,8 +1,8 @@
 // SPACE DATA EXERCISE 3
 // Return an array of all Planets' average temperatures
 // Return example: [1, 2, ... , N]
-import { planet } from '../types/types';
-export function getAllAverageTemperatures(planets: planet[]) {
+import { Planet } from '../types/types';
+export function getAllAverageTemperatures(planets: Planet[]) {
 	return planets.map((planet) => planet.avgTemp);
 }
 

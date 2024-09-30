@@ -2,11 +2,12 @@
 // Return the average temperature of all the Planets
 // Return example: 132.53
 
-import { data } from '../types/types';
-export function getAveragePlanetsTemperature(data: data) {
-	let temperatures = data.planets.map((planet) => planet.avgTemp);
-	let sum = temperatures.reduce((acc, curr) => acc + curr);
-	return sum / temperatures.length;
+import { AllData } from '../types/types';
+export function getAveragePlanetsTemperature(data: AllData) {
+	return (
+		data.planets.reduce((acc, planet) => acc + planet.avgTemp, 0) /
+		data.planets.length
+	);
 }
 
 // === TEST YOURSELF ===

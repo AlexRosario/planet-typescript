@@ -1,9 +1,9 @@
 // SPACE DATA EXERCISE 2
 // Return an array of all Asteroids' names
 // Return example: ['name1', 'name2', ... , 'nameN']
-import { asteroid } from '../types/types';
+import { Asteroid } from '../types/types';
 
-export function getAsteroidNames(asteroids: asteroid[]) {
+export function getAsteroidNames(asteroids: Asteroid[]) {
 	return asteroids.map((asteroid) => asteroid.name);
 }
 
